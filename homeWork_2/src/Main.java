@@ -10,7 +10,7 @@ public class Main {
             System.out.println(figure.resultAfterCalculation());
         }catch (Exception e)
         {
-            System.err.println("Параметр фігури не може містити літер:  " + e.getClass());
+            System.err.println("Параметр фігури не може містити літер: " + e.getClass());
         }
     }
 }
