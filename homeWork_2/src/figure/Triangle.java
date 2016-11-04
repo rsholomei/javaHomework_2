@@ -8,7 +8,6 @@ public class Triangle implements IShape {
 
     private double area;
     private double perimeter;
-    private double halfperimeter;
     private double sideA;
     private double sideB;
     private double sideC;
@@ -41,7 +40,7 @@ public class Triangle implements IShape {
 
     @Override
     public double calculateArea() {
-        halfperimeter = (getSideA() + getSideB() + getSideC()) / 2;
+        double halfperimeter = (getSideA() + getSideB() + getSideC()) / 2;
         area = Math.sqrt(halfperimeter * (halfperimeter - getSideA()) * (halfperimeter - getSideB())
                 * (halfperimeter - getSideC()));
         return area;

@@ -40,9 +40,4 @@ public class SelectionFigure {
     {
         return corrected;
     }
-    public static void main(String[] args)
-    {
-        inputFigure();
-        System.out.println();
-    }
 }
