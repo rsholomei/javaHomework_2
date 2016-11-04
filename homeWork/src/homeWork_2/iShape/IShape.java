@@ -1,11 +1,11 @@
-package homeWork_2.IShapeAction;
+package homeWork_2.iShape;
 
 import java.util.Scanner;
 
-public interface IShapeAction {
-    
+public interface IShape {
+
     double calculateArea();
     double calculatePerimeter();
-    void enterOptions(Scanner scanner);
+    void inputParams(Scanner scanner);
     String resultAfterCalculation();
 }

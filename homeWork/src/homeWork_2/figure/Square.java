@@ -1,19 +1,25 @@
-package homeWork_2.figureAction;
+package homeWork_2.figure;
 
 
-import homeWork_2.IShapeAction.IShapeAction;
+import homeWork_2.iShape.IShape;
 
 import java.util.Scanner;
 
 import static java.lang.String.format;
 
-public class SquareAction implements IShapeAction {
+public class Square implements IShape {
 
     private double lengthSide;
 
     private double area;
     private double perimeter;
-    private TriangleAction triangle;
+    private Triangle triangle;
+
+    public static Square createAndInitializationFigure() {
+        Square square = new Square();
+        square.inputParams(new Scanner(System.in));
+        return square;
+    }
 
     public double getLengthSide()
     {
@@ -21,11 +27,19 @@ public class SquareAction implements IShapeAction {
     }
 
     @Override
-    public void enterOptions(Scanner scanner) {
+    public void inputParams(Scanner scanner) {
         System.out.println("Введіть довжину сторони квадрата:");
         this.lengthSide = scanner.nextDouble();
 
-        triangle = new TriangleAction(getLengthSide(),getLengthSide(),
+        while (lengthSide < 0)
+        {
+            System.out.println("Ви ввели не коректну сторону квадрата. Спробуйте ще:");
+
+            System.out.println("Введіть довжину сторони квадрата:");
+            lengthSide = scanner.nextDouble();
+        }
+
+        triangle = new Triangle(getLengthSide(),getLengthSide(),
                 getLengthSide() * Math.sqrt(2));
     }
 

@@ -1,28 +1,44 @@
-package homeWork_2.figureAction;
+package homeWork_2.figure;
 
-import homeWork_2.IShapeAction.IShapeAction;
+import homeWork_2.iShape.IShape;
 
 import java.util.Scanner;
 
 import static java.lang.String.format;
 
-public class RectangleAction implements IShapeAction {
+public class Rectangle implements IShape {
 
     private double length;
     private double width;
 
     private double area;
     private double perimeter;
-    private TriangleAction triangle;
+    private Triangle triangle;
+
+    public static Rectangle createAndInitializationFigure() {
+        Rectangle rectangle = new Rectangle();
+        rectangle.inputParams(new Scanner(System.in));
+        return rectangle;
+    }
 
     @Override
-    public void enterOptions(Scanner scanner) {
+    public void inputParams(Scanner scanner) {
         System.out.println("Введіть довжину прямокутника:");
         this.length = scanner.nextDouble();
         System.out.println("Введіть ширину прямокутника:");
         this.width = scanner.nextDouble();
 
-        triangle = new TriangleAction(getWidth(),getLength(),
+        while (length < 0 || width < 0)
+        {
+            System.out.println("Ви ввели не коректні параметри прямокутника. Спробуйте ще:");
+
+            System.out.println("Введіть довжину прямокутника:");
+            length = scanner.nextDouble();
+            System.out.println("Введіть ширину прямокутника:");
+            width = scanner.nextDouble();
+        }
+
+        triangle = new Triangle(getWidth(),getLength(),
                 Math.sqrt(Math.pow(getWidth(), 2)+Math.pow(getLength(), 2)));
     }
 

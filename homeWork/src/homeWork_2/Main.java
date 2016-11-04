@@ -1,21 +1,18 @@
 package homeWork_2;
 
-import homeWork_2.Enum.UserSelectionFigures;
-import homeWork_2.IShapeAction.IShapeAction;
-
-import java.util.Scanner;
+import homeWork_2.enumShape.NewFigure;
+import homeWork_2.iShape.IShape;
 
 public class Main {
     public static void main(String[] args)
     {
         try {
-            IShapeAction shapeAction = UserSelectionFigures.selectionFigures();
-            shapeAction.enterOptions(new Scanner(System.in));
+            IShape shapeAction = NewFigure.selectionFigures();
             shapeAction.calculateArea();
             shapeAction.calculatePerimeter();
             System.out.println(shapeAction.resultAfterCalculation());
         } catch (Exception e) {
-            System.err.println("Ви ввели невірні параметри фігури: " + e.getClass());
+            System.err.println("Параметр фігури містить літеру: " + e.getClass());
         }
     }
 }

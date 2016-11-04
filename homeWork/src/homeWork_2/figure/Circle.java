@@ -1,25 +1,36 @@
-package homeWork_2.figureAction;
+package homeWork_2.figure;
 
-import homeWork_2.IShapeAction.IShapeAction;
+import homeWork_2.iShape.IShape;
 
 import java.util.Scanner;
 
 import static java.lang.String.format;
 
-public class CircleAction implements IShapeAction {
+public class Circle implements IShape {
 
     private double radius;
-
     private double area;
     private double perimeter;
 
-    @Override
-    public void enterOptions(Scanner scanner) {
-        System.out.println("Введіть радіус кола:");
-        this.radius = scanner.nextDouble();
+    public double getRadius() { return radius; }
+
+    public static Circle createAndInitializationFigure() {
+        Circle circle = new Circle();
+        circle.inputParams(new Scanner(System.in));
+        return circle;
     }
 
-    public double getRadius() { return radius; }
+    @Override
+    public void inputParams(Scanner scanner) {
+        System.out.println("Введіть радіус кола:");
+        this.radius = scanner.nextDouble();
+        while (radius < 0)
+        {
+            System.out.println("Ви ввели не коректний радіус. Спробуйте ще:");
+            System.out.println("Введіть радіус кола:");
+            radius = scanner.nextDouble();
+        }
+    }
 
     @Override
     public double calculateArea() {

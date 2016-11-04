@@ -1,17 +1,17 @@
-package homeWork_2.Enum;
+package homeWork_2.enumShape;
 
 import java.util.Scanner;
 
-public class EnterFiguresValidator {
+public class FiguresValidator {
     private static boolean flag;
     private static Shape correct;
 
-    public static boolean enterFigure()
+    public static boolean validatorFigure()
     {
         Scanner scanner = new Scanner(System.in);
         String yourFigure = scanner.next();
         Shape[] shapes = Shape.values();
-
+        
         for (Shape shape : shapes)
         {
             if (shape.toString().equals(yourFigure.toUpperCase()))
@@ -27,12 +27,12 @@ public class EnterFiguresValidator {
         return flag;
     }
 
-    public static void Validator()
+    public static void inputFigure()
     {
         while (!flag)
         {
             System.out.println("Введіть тип фігури:");
-            enterFigure();
+            validatorFigure();
         }
     }
 

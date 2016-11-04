@@ -1,12 +1,12 @@
-package homeWork_2.figureAction;
+package homeWork_2.figure;
 
-import homeWork_2.IShapeAction.IShapeAction;
+import homeWork_2.iShape.IShape;
 
 import java.util.Scanner;
 
 import static java.lang.String.format;
 
-public class TriangleAction implements IShapeAction {
+public class Triangle implements IShape {
 
     private static double sideA;
     private static double sideB;
@@ -17,17 +17,23 @@ public class TriangleAction implements IShapeAction {
     private double halfPerimeter;
     private boolean flag;
 
-    public TriangleAction(){}
+    public Triangle(){}
 
-    public TriangleAction(double sideA, double sideB, double sideC)
+    public Triangle(double sideA, double sideB, double sideC)
     {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
     }
 
+    public static Triangle createAndInitializationFigure() {
+        Triangle triangle = new Triangle();
+        triangle.inputParams(new Scanner(System.in));
+        return triangle;
+    }
+
     @Override
-    public void enterOptions(Scanner scanner) {
+    public void inputParams(Scanner scanner) {
         System.out.println("Введіть 3 сторони трикутника:");
         System.out.println("сторона А: ");
         this.sideA = scanner.nextDouble();
@@ -35,6 +41,17 @@ public class TriangleAction implements IShapeAction {
         this.sideB = scanner.nextDouble();
         System.out.println("сторона С: ");
         this.sideC = scanner.nextDouble();
+
+        while (sideA < 0 || sideB < 0 || sideC < 0)
+        {
+            System.out.println("Ви ввели не коректні параметри трикутника. Спробуйте ще:");
+            System.out.println("сторона А: ");
+            sideA = scanner.nextDouble();
+            System.out.println("сторона В: ");
+            sideB = scanner.nextDouble();
+            System.out.println("сторона С: ");
+            sideC = scanner.nextDouble();
+        }
     }
 
     public static double getSideA() {
