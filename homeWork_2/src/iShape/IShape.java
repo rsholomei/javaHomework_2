@@ -1,4 +1,4 @@
-package homeWork_2.iShape;
+package iShape;
 
 import java.util.Scanner;
 

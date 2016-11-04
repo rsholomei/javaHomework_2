@@ -1,14 +1,16 @@
-package homeWork_2.enumShape;
+package enumShape;
 
-import homeWork_2.iShape.IShape;
-import homeWork_2.figure.*;
+import figure.Circle;
+import figure.Rectangle;
+import figure.Square;
+import figure.Triangle;
+import iShape.IShape;
 
 public class NewFigure {
-
-    public static IShape selectionFigures()
+    public static IShape selectionFigure()
     {
-        FiguresValidator.inputFigure();
-        switch (FiguresValidator.correctedShape())
+        SelectionFigure.inputFigure();
+        switch (SelectionFigure.correctedFigure())
         {
             case CIRCLE:
                 return Circle.createAndInitializationFigure();
