@@ -11,15 +11,16 @@ public class Square implements IShape {
     private double lengthSide;
     private double area;
     private double perimeter;
+    private Scanner scanner;
 
     public double getLengthSide() {
         return lengthSide;
     }
 
-    public static Square createAndInitializationFigure()
+    public Square createAndInitializationFigure(int lengthSide)
     {
         Square square = new Square();
-        square.inputParams(new Scanner(System.in));
+        square.inputParams(lengthSide);
         return square;
     }
 
@@ -35,15 +36,13 @@ public class Square implements IShape {
         return perimeter;
     }
 
-    @Override
-    public void inputParams(Scanner scanner) {
-        System.out.println("Введіть довжину сторони квадрата:");
-        this.lengthSide = scanner.nextDouble();
+    public void inputParams(int lengthSide) {
+        this.lengthSide = lengthSide;
         while (getLengthSide() < 0)
         {
             System.out.println("Ви ввели некоректну довжину сторони квадрата. Спробуйте ще:");
             System.out.println("Введіть довжину сторони квадрата:");
-            lengthSide = scanner.nextDouble();
+            lengthSide = scanner.nextInt();
         }
         triangle = new Triangle(getLengthSide(), getLengthSide(), Math.sqrt(Math.pow(getLengthSide(), 2) +
                 Math.pow(getLengthSide(), 2)));

@@ -7,18 +7,19 @@ import java.util.Scanner;
 
 public class Circle implements IShape {
 
-    private double radius;
+    private int radius;
     private double area;
     private double perimeter;
+    private Scanner scanner;
 
     public double getRadius() {
         return radius;
     }
 
-    public static Circle createAndInitializationFigure()
+    public Circle createAndInitializationFigure(int radius)
     {
         Circle circle = new Circle();
-        circle.inputParams(new Scanner(System.in));
+        circle.inputParams(radius);
         return circle;
     }
     @Override
@@ -33,16 +34,14 @@ public class Circle implements IShape {
         return perimeter;
     }
 
-    @Override
-    public void inputParams(Scanner scanner) {
-        System.out.println("Введіть радіус кола:");
-        this.radius = scanner.nextDouble();
+    public void inputParams(int radius) {
+        this.radius = radius;
 
         while (radius < 0)
         {
             System.out.println("Ви ввели некоректний радіус. Спробуйте ще:");
             System.out.println("Введіть радіус кола:");
-            radius = scanner.nextDouble();
+            radius = scanner.nextInt();
         }
 
     }

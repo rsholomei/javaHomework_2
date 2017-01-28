@@ -52,7 +52,6 @@ public class Triangle implements IShape {
         return perimeter;
     }
 
-    @Override
     public void inputParams(Scanner scanner) {
         System.out.println("Введіть сторони трикутника:");
         System.out.println("Сторона А:");

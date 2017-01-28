@@ -13,11 +13,11 @@ public class NewFigure {
         switch (SelectionFigure.correctedFigure())
         {
             case CIRCLE:
-                return Circle.createAndInitializationFigure();
+                return new Circle().createAndInitializationFigure(6);
             case SQUARE:
-                return Square.createAndInitializationFigure();
+                return new Square().createAndInitializationFigure(5);
             case RECTANGLE:
-                return Rectangle.createAndInitializationFigure();
+                return new Rectangle().createAndInitializationFigure(3, 7);
             case TRIANGLE:
                 return Triangle.createAndInitializationFigure();
             default:

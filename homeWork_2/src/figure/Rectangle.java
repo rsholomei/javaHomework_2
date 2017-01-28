@@ -10,6 +10,7 @@ public class Rectangle implements IShape {
     private double width;
     private double area;
     private double perimeter;
+    private Scanner scanner;
     Triangle triangle;
 
     public double getLength() {
@@ -20,10 +21,10 @@ public class Rectangle implements IShape {
         return width;
     }
 
-    public static Rectangle createAndInitializationFigure()
+    public Rectangle createAndInitializationFigure(int length, int width)
     {
         Rectangle rectangle = new Rectangle();
-        rectangle.inputParams(new Scanner(System.in));
+        rectangle.inputParams(length, width);
         return rectangle;
     }
 
@@ -39,12 +40,9 @@ public class Rectangle implements IShape {
         return perimeter;
     }
 
-    @Override
-    public void inputParams(Scanner scanner) {
-        System.out.println("Введіть довжину прямокутника:");
-        this.length = scanner.nextDouble();
-        System.out.println("Введіть ширину прямокутника:");
-        this.width = scanner.nextDouble();
+    public void inputParams(int length, int width) {
+        this.length = length;
+        this.width = width;
 
         while (getLength() < 0 || getWidth() < 0)
         {
